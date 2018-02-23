@@ -19,3 +19,15 @@ spec:
         image: gcr.io/broeking-infrastructure/test-nodejs-server
         ports:
         - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-deployment-service
+spec:
+  selector:
+    app: nodejs
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
